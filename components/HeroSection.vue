@@ -16,7 +16,7 @@ const mobileMenuOpen = ref(false);
 </script>
 
 <template>
-    <div>
+    <div class="h-screen min-h-[800px]">
         <header class="absolute inset-x-0 top-0 z-50">
             <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
                 <div class="flex lg:flex-1">
@@ -86,7 +86,7 @@ const mobileMenuOpen = ref(false);
             <img
                 src="/images/hero-background.jpg"
                 alt=""
-                class="absolute inset-0 -z-10 h-screen w-full object-cover opacity-60"
+                class="absolute inset-0 -z-10 h-screen min-h-[800px] w-full object-cover opacity-60"
             />
             <div
                 class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
