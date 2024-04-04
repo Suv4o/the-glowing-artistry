@@ -3,4 +3,6 @@
 <template>
     <HeroSection />
     <FeatureSection />
+    <CtaSection />
+    <Testimonials />
 </template>

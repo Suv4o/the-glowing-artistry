@@ -40,11 +40,11 @@ const features = [
 <template>
     <div class="overflow-hidden bg-white py-24 sm:py-32">
         <div class="mx-auto max-w-7xl md:px-6 lg:px-8">
-            <div class="grid grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:grid-cols-2 lg:items-start">
-                <div class="px-6 lg:px-0 lg:pr-4 lg:pt-4">
+            <div class="flex flex-col-reverse lg:grid lg:gap-x-8 lg:gap-y-16 lg:grid-cols-2 lg:items-start">
+                <div class="px-6 lg:px-0 lg:pr-4 pt-12 lg:pt-4">
                     <div class="mx-auto max-w-2xl lg:mx-0 lg:max-w-lg">
-                        <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                            The Benefits of Eyelash Extensions
+                        <p class="mt-2 text-4xl tracking-tight text-dark-olive font-miller-display sm:text-5xl">
+                            <i>The Benefits</i> of Eyelash Extensions
                         </p>
                         <p class="mt-6 text-lg leading-8 text-gray-600">
                             At The Glowing Artistry, we offer a range of meticulously crafted lash sets tailored to
