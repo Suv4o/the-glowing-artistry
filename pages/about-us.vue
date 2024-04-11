@@ -3,5 +3,7 @@ import AboutUs from "~/components/AboutUs.vue";
 </script>
 
 <template>
-    <AboutUs />
+    <div>
+        <AboutUs />
+    </div>
 </template>
