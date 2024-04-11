@@ -13,7 +13,7 @@ const navigation = {
     social: [
         {
             name: "Facebook",
-            href: "#",
+            href: "https://www.facebook.com/profile.php?id=61557977562562&mibextid=JRoKGi",
             icon: defineComponent({
                 render: () =>
                     h("svg", { fill: "currentColor", viewBox: "0 0 24 24" }, [
@@ -27,7 +27,7 @@ const navigation = {
         },
         {
             name: "Instagram",
-            href: "#",
+            href: "https://www.instagram.com/theglowingartistry?igsh=MTFmaHgxbmhhdGFjbg%3D%3D&utm_source=qr",
             icon: defineComponent({
                 render: () =>
                     h("svg", { fill: "currentColor", viewBox: "0 0 24 24" }, [
