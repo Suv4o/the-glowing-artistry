@@ -148,6 +148,23 @@ const eyelashExtensionsRemovals = [
                     </ul>
                 </div>
             </div>
+            <div class="bg-light-olive mt-12 bg-opacity-80">
+                <div
+                    class="mx-auto max-w-7xl px-6 py-12 lg:flex lg:items-center lg:justify-between lg:px-8 lg:gap-x-96"
+                >
+                    <h2 class="text-4xl font-miller-display tracking-tight sm:text-5xl text-white">
+                        <i>Experience</i> the difference. <br /><i>Secure</i> your spot now.
+                    </h2>
+                    <div class="mt-10 flex items-center gap-x-6 lg:mt-0 lg:flex-shrink-0">
+                        <NuxtLink
+                            to="/"
+                            class="rounded-md bg-dark-beige px-10 py-5 font-semibold text-white shadow-sm hover:bg-beige focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-beige"
+                            >Book Now</NuxtLink
+                        >
+                    </div>
+                </div>
+            </div>
+            <GiveTheGift />
         </div>
     </div>
 </template>

@@ -117,14 +117,14 @@ const afterCareAdvices = [
                 <div
                     class="mx-auto max-w-7xl px-6 py-12 lg:flex lg:items-center lg:justify-between lg:px-8 lg:gap-x-96"
                 >
-                    <h2 class="text-4xl font-miller-display tracking-tight text-gray-900 sm:text-5xl text-white">
+                    <h2 class="text-4xl font-miller-display tracking-tight sm:text-5xl text-white">
                         <i>Elevate</i> your everyday elegance with lash extensions. <br /><i>Book now</i> to experience
                         the difference.
                     </h2>
                     <div class="mt-10 flex items-center gap-x-6 lg:mt-0 lg:flex-shrink-0">
                         <NuxtLink
                             to="/"
-                            class="rounded-md bg-dark-beige px-12 py-5 font-semibold text-white shadow-sm hover:bg-beige focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-beige"
+                            class="rounded-md bg-dark-beige px-10 py-5 font-semibold text-white shadow-sm hover:bg-beige focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-beige"
                             >Book Now</NuxtLink
                         >
                     </div>

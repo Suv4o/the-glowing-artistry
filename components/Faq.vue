@@ -64,7 +64,7 @@ const faqs = [
             <div class="mx-auto max-w-4xl divide-y divide-gray-900/10">
                 <div>
                     <h2 class="text-4xl sm:text-5xl leading-10 tracking-tight text-dark-olive font-miller-display">
-                        Frequently asked questions
+                        <i>Frequently</i> asked questions
                     </h2>
                     <p class="mt-6">
                         If you're new to the world of eyelash extensions, you may have some questions—and that's
@@ -92,6 +92,23 @@ const faqs = [
                         </DisclosurePanel>
                     </Disclosure>
                 </dl>
+            </div>
+            <div class="bg-beige bg-opacity-80 mt-12">
+                <div
+                    class="mx-auto max-w-7xl px-6 py-12 lg:flex lg:items-center lg:justify-between lg:px-8 lg:gap-x-96"
+                >
+                    <h2 class="text-4xl font-miller-display tracking-tight sm:text-5xl text-white">
+                        Have further questions? <br />
+                        <i>Get in touch</i> with our team.
+                    </h2>
+                    <div class="mt-10 flex items-center gap-x-6 lg:mt-0 lg:flex-shrink-0">
+                        <NuxtLink
+                            to="/get-in-touch"
+                            class="rounded-md bg-dark-beige px-10 py-5 font-semibold text-white shadow-sm hover:bg-beige focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-beige"
+                            >Get in Touch</NuxtLink
+                        >
+                    </div>
+                </div>
             </div>
         </div>
     </div>
