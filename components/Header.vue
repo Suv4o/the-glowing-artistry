@@ -6,7 +6,7 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/vue/24/outline";
 const navigation = [
     { name: "About Us", to: "/about-us" },
     { name: "Services & Prices", to: "/services-prices" },
-    { name: "Before & After Service Advice", to: "/" },
+    { name: "Before & After Service Advice", to: "/before-and-after-care-advice" },
     { name: "FAQ", to: "/" },
     { name: "Studio Policies", to: "/" },
     { name: "Get in Touch", to: "/" },
