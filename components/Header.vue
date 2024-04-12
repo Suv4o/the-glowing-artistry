@@ -7,7 +7,7 @@ const navigation = [
     { name: "About Us", to: "/about-us" },
     { name: "Services & Prices", to: "/services-prices" },
     { name: "Before & After Service Advice", to: "/before-and-after-care-advice" },
-    { name: "FAQ", to: "/" },
+    { name: "FAQ", to: "/faq" },
     { name: "Studio Policies", to: "/" },
     { name: "Get in Touch", to: "/" },
 ];
