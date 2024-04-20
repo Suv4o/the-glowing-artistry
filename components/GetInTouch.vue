@@ -4,7 +4,7 @@ import { PhotoIcon, UserCircleIcon } from "@heroicons/vue/24/solid";
 
 <template>
     <form>
-        <div class="space-y-12 pb-24 sm:pb-32 pt-44">
+        <div class="space-y-12 pb-24 pt-44">
             <div class="mx-auto max-w-7xl px-6 lg:px-8">
                 <div class="mb-12">
                     <h1 class="text-5xl font-miller-display tracking-tight text-dark-olive"><i>Get</i> in Touch</h1>
@@ -14,7 +14,7 @@ import { PhotoIcon, UserCircleIcon } from "@heroicons/vue/24/solid";
                         and our lash experts will promptly reach out to assist you.
                     </p>
                 </div>
-                <div class="grid grid-cols-1 gap-x-8 gap-y-10 border-b border-gray-900/10 pb-6 md:grid-cols-4">
+                <div class="grid grid-cols-1 gap-x-8 gap-y-10 pb-6 md:grid-cols-4">
                     <div class="md:col-span-1">
                         <h2 class="text-base font-semibold leading-7 text-gray-900 mb-2">Where are we located</h2>
                         <p class="mt-1 text-sm leading-6 text-gray-600">
