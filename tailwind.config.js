@@ -29,33 +29,5 @@ export default {
             },
         },
     },
-    plugins: [],
+    plugins: [require("@tailwindcss/forms")],
 };
-
-// font-family: "itc-avant-garde-gothic-pro", sans-serif;
-// font-weight: 300;
-// font-style: normal;
-
-// font-family: "itc-avant-garde-gothic-pro", sans-serif;
-// font-weight: 500;
-// font-style: normal;
-
-// font-family: "itc-avant-garde-gothic-pro", sans-serif;
-// font-weight: 700;
-// font-style: normal;
-
-// font-family: "miller-display", serif;
-// font-weight: 300;
-// font-style: normal;
-
-// font-family: "miller-display", serif;
-// font-weight: 300;
-// font-style: italic;
-
-// font-family: "miller-display", serif;
-// font-weight: 400;
-// font-style: normal;
-
-// font-family: "miller-display", serif;
-// font-weight: 400;
-// font-style: italic;

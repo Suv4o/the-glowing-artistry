@@ -60,7 +60,7 @@ const faqs = [
 
 <template>
     <div class="bg-white pt-12">
-        <div class="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8 lg:py-40">
+        <div class="mx-auto max-w-7xl px-6 pb-24 sm:pb-32 lg:px-8 lg:pb-40 pt-32">
             <div class="mx-auto max-w-4xl divide-y divide-gray-900/10">
                 <div>
                     <h2 class="text-4xl sm:text-5xl leading-10 tracking-tight text-dark-olive font-miller-display">

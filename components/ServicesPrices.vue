@@ -62,7 +62,7 @@ const eyelashExtensionsRemovals = [
 
 <template>
     <div class="relative isolate overflow-hidden bg-white px-6 pt-32 lg:overflow-visible lg:px-0">
-        <div class="mx-auto max-w-7xl py-24 sm:px-2 sm:py-32 lg:px-4">
+        <div class="mx-auto max-w-7xl pb-24 sm:px-2 sm:pb-32 lg:px-4 pt-12">
             <div class="mx-auto max-w-2xl px-4 lg:max-w-none">
                 <div class="max-w-3xl">
                     <h1 class="text-5xl font-miller-display tracking-tight text-gray-900">Services & Prices</h1>

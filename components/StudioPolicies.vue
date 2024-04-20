@@ -3,7 +3,7 @@ import { CheckCircleIcon, InformationCircleIcon } from "@heroicons/vue/20/solid"
 </script>
 
 <template>
-    <div class="bg-white px-6 py-32 lg:px-8 mt-24">
+    <div class="bg-white px-6 pb-32 lg:px-8 pt-44">
         <div class="mx-auto max-w-3xl text-base leading-7 text-gray-700">
             <h1 class="mt-2 text-4xl font-bold tracking-tight text-dark-olive sm:text-5xl font-miller-display">
                 <i>Studio</i> Policies

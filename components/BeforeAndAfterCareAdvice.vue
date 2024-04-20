@@ -63,7 +63,7 @@ const afterCareAdvices = [
 </script>
 
 <template>
-    <div class="bg-white pb-24 sm:pb-32 pt-56">
+    <div class="bg-white pb-24 sm:pb-32 pt-44">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
             <div
                 class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3"

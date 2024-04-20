@@ -9,7 +9,7 @@ const navigation = [
     { name: "Before & After Service Advice", to: "/before-and-after-care-advice" },
     { name: "FAQ", to: "/faq" },
     { name: "Studio Policies", to: "/studio-policies" },
-    { name: "Get in Touch", to: "/" },
+    { name: "Get in Touch", to: "/get-in-touch" },
 ];
 
 const mobileMenuOpen = ref(false);

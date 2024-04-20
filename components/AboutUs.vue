@@ -3,7 +3,7 @@ import { CloudArrowUpIcon, LockClosedIcon, ServerIcon } from "@heroicons/vue/20/
 </script>
 
 <template>
-    <div class="relative isolate overflow-hidden bg-white px-6 pb-24 sm:pb-32 pt-56 lg:overflow-visible lg:px-0">
+    <div class="relative isolate overflow-hidden bg-white px-6 pb-24 sm:pb-32 pt-44 lg:overflow-visible lg:px-0">
         <div class="absolute inset-0 -z-10 overflow-hidden">
             <img
                 src="/images/hero-background.jpg"

@@ -3,12 +3,12 @@ import { defineComponent, h } from "vue";
 
 const navigation = {
     main: [
-        { name: "About Us", to: "/" },
-        { name: "Services & Prices", to: "/" },
-        { name: "Before & After Service Advice", to: "/" },
-        { name: "FAQ", to: "/" },
-        { name: "Studio Policies", to: "/" },
-        { name: "Get in Touch", to: "/" },
+        { name: "About Us", to: "/about-us" },
+        { name: "Services & Prices", to: "/services-prices" },
+        { name: "Before & After Service Advice", to: "/before-and-after-care-advice" },
+        { name: "FAQ", to: "/faq" },
+        { name: "Studio Policies", to: "/studio-policies" },
+        { name: "Get in Touch", to: "/get-in-touch" },
     ],
     social: [
         {
@@ -46,6 +46,48 @@ const navigation = {
 <template>
     <footer class="bg-white">
         <div class="mx-auto max-w-7xl overflow-hidden px-6 py-20 sm:py-24 lg:px-8">
+            <div class="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-8 mb-12 items-center">
+                <div class="max-w-xl tracking-tight text-gray-900 lg:col-span-7">
+                    <h2 class="inline font-miller-display sm:block lg:inline xl:block text-4xl sm:text-5xl mb-2">
+                        <i>Subscribe</i>
+                    </h2>
+                    {{ " " }}
+                    <p class="inline sm:block lg:inline xl:block">
+                        Stay in the loop with exclusive offers, event updates, new product releases, and much more by
+                        subscribing today.
+                    </p>
+                </div>
+                <form class="w-full max-w-md lg:col-span-5 lg:pt-2">
+                    <div class="flex gap-x-4 mb-4">
+                        <label for="email-address" class="sr-only">Subscribe Name</label>
+                        <input
+                            id="subscribe-name"
+                            name="subscribe-name"
+                            type="email"
+                            autocomplete="subscribe-name"
+                            class="min-w-0 flex-auto rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                            placeholder="Name"
+                        />
+                    </div>
+                    <div class="flex gap-x-4">
+                        <label for="email-address" class="sr-only">Email</label>
+                        <input
+                            id="email-address"
+                            name="email"
+                            type="email"
+                            autocomplete="email"
+                            class="min-w-0 flex-auto rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                            placeholder="Email address"
+                        />
+                        <button
+                            type="submit"
+                            class="flex-none rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                        >
+                            Subscribe
+                        </button>
+                    </div>
+                </form>
+            </div>
             <nav class="-mb-6 columns-2 sm:flex sm:justify-center sm:space-x-12" aria-label="Footer">
                 <div v-for="item in navigation.main" :key="item.name" class="pb-6">
                     <NuxtLink :to="item.to" class="text-sm leading-6 text-gray-600 hover:text-gray-900">{{
@@ -66,7 +108,8 @@ const navigation = {
             </div>
             <ClientOnly>
                 <p class="mt-10 text-center text-xs leading-5 text-gray-500">
-                    &copy; {{ new Date().getFullYear() }} The Glowing Artistry. All rights reserved.
+                    &copy; {{ new Date().getFullYear() }} The Glowing Artistry. All rights reserved. <br />
+                    ABN: 39 256 340 452
                 </p>
             </ClientOnly>
         </div>
