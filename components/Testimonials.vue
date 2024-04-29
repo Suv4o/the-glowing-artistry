@@ -7,7 +7,7 @@ const testimonials = [
         },
     },
     {
-        body: "Couldn’t be happier with how my lash extensions turned out – fuller and longer. Nicole took the time to understand my preferences and customise the lashes to suit my eye shape perfectly. She also took the time to explain the aftercare instructions to maintaining my lashes. I'll definitely be coming back for refills in the future.",
+        body: "Was such a great experience. Super professional and meticulous. Could not recommend more. Will only be getting my lashes done from Glowing Artistry from now on.",
         author: {
             name: "Brinda M.",
         },
