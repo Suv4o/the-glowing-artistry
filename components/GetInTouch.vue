@@ -1,7 +1,50 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const message = ref<string | null>(null);
+let clearTimeout: any = null;
+
+async function submitForm(event: Event) {
+    try {
+        event.preventDefault();
+        message.value = null;
+        if (clearTimeout) {
+            clearTimeout(clearTimeout);
+        }
+
+        const form = event.target as HTMLFormElement;
+        const formData = new FormData(form);
+        const formEntries = Object.fromEntries(formData.entries());
+
+        const body = Object.fromEntries(Object.entries(formEntries).filter(([_, value]) => value !== ""));
+
+        // @ts-ignore
+        if (body?.message?.length < 10) {
+            message.value = "Message should be at least 10 characters long.";
+            return;
+        }
+
+        await $fetch("/api/contact", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(body),
+        });
+
+        message.value = "Thank you for reaching out! We will get back to you shortly.";
+
+        clearTimeout = setTimeout(() => {
+            message.value = null;
+        }, 5000);
+
+        form.reset();
+    } catch (error) {
+        message.value = "An error occurred. Please try again later.";
+    }
+}
+</script>
 
 <template>
-    <form>
+    <form @submit="submitForm">
         <div class="space-y-12 pb-24 pt-44">
             <div class="mx-auto max-w-7xl px-6 lg:px-8">
                 <div class="mb-12">
@@ -28,13 +71,14 @@
 
                     <div class="grid grid-cols-1 gap-x-6 gap-y-8 md:grid-cols-5 md:col-span-3 md:ml-24">
                         <div class="sm:col-span-3">
-                            <label for="name" class="block text-sm font-medium leading-6 text-gray-900">Name</label>
+                            <label for="name" class="block text-sm font-medium leading-6 text-gray-900">Name *</label>
                             <div class="mt-2">
                                 <input
                                     type="text"
                                     name="name"
                                     id="name"
                                     autocomplete="name"
+                                    required
                                     class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6 focus:ring-dark-olive"
                                 />
                             </div>
@@ -72,26 +116,29 @@
 
                         <div class="sm:col-span-4">
                             <label for="message" class="block text-sm font-medium leading-6 text-gray-900"
-                                >Message</label
+                                >Message *</label
                             >
                             <div class="mt-2">
                                 <textarea
                                     id="message"
                                     name="message"
                                     rows="4"
+                                    required
                                     class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-dark-olive sm:text-sm sm:leading-6"
                                 />
                             </div>
                         </div>
 
                         <div class="sm:col-span-3">
-                            <p class="mt-1 text-sm leading-6 text-gray-600">I prefer to be contacted via:</p>
+                            <p class="mt-1 text-sm leading-6 text-gray-600">I prefer to be contacted via: *</p>
                             <div class="mt-2 flex gap-4 lg:gap-12">
                                 <div class="flex items-center gap-x-3">
                                     <input
+                                        value="email"
                                         id="contact-email"
-                                        name="push-notifications"
+                                        name="preferredToContact"
                                         type="radio"
+                                        required
                                         class="h-4 w-4 border-gray-300 text-light-olive focus:ring-dark-olive"
                                     />
                                     <label for="contact-email" class="block text-sm font-medium leading-6 text-gray-900"
@@ -100,9 +147,11 @@
                                 </div>
                                 <div class="flex items-center gap-x-3">
                                     <input
+                                        value="phone-call"
                                         id="contact-phone"
-                                        name="push-notifications"
+                                        name="preferredToContact"
                                         type="radio"
+                                        required
                                         class="h-4 w-4 border-gray-300 text-light-olive focus:ring-dark-olive"
                                     />
                                     <label for="contact-phone" class="block text-sm font-medium leading-6 text-gray-900"
@@ -111,9 +160,11 @@
                                 </div>
                                 <div class="flex items-center gap-x-3">
                                     <input
+                                        value="text"
                                         id="contact-text"
-                                        name="push-notifications"
+                                        name="preferredToContact"
                                         type="radio"
+                                        required
                                         class="h-4 w-4 border-gray-300 text-light-olive focus:ring-dark-olive"
                                     />
                                     <label for="contact-text" class="block text-sm font-medium leading-6 text-gray-900"
@@ -131,6 +182,7 @@
                                     Submit
                                 </button>
                             </div>
+                            <p v-if="message" class="mt-4 text-sm text-center">{{ message }}</p>
                         </div>
                     </div>
                 </div>
