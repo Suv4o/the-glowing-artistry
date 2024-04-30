@@ -1,0 +1,12 @@
+### Contact Form
+
+POST http://localhost:3000/api/contact HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Foo Bar",
+    "email": "test@test.com",
+    "phone": "0422222221",
+    "message": "Hello World!",
+    "preferredToContact": "email"
+}
