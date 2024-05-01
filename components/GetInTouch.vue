@@ -1,42 +1,50 @@
 <script setup lang="ts">
+declare const grecaptcha: any;
 const message = ref<string | null>(null);
 let clearTimeout: any = null;
+const config = useRuntimeConfig();
 
 async function submitForm(event: Event) {
     try {
         event.preventDefault();
-        message.value = null;
-        if (clearTimeout) {
-            clearTimeout(clearTimeout);
-        }
+        grecaptcha.ready(() => {
+            grecaptcha.execute(config.public.RECAPTCHA_SITE_KEY, { action: "submit" }).then(async (token: string) => {
+                message.value = null;
+                if (clearTimeout) {
+                    clearTimeout(clearTimeout);
+                }
 
-        const form = event.target as HTMLFormElement;
-        const formData = new FormData(form);
-        const formEntries = Object.fromEntries(formData.entries());
+                const form = event.target as HTMLFormElement;
+                const formData = new FormData(form);
+                const formEntries = Object.fromEntries(formData.entries());
 
-        const body = Object.fromEntries(Object.entries(formEntries).filter(([_, value]) => value !== ""));
+                const body = Object.fromEntries(Object.entries(formEntries).filter(([_, value]) => value !== ""));
 
-        // @ts-ignore
-        if (body?.message?.length < 10) {
-            message.value = "Message should be at least 10 characters long.";
-            return;
-        }
+                // @ts-ignore
+                if (body?.message?.length < 10) {
+                    message.value = "Message should be at least 10 characters long.";
+                    return;
+                }
 
-        await $fetch("/api/contact", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(body),
+                body.token = token;
+
+                await $fetch("/api/contact", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(body),
+                });
+
+                message.value = "Thank you for reaching out! We will get back to you shortly.";
+
+                clearTimeout = setTimeout(() => {
+                    message.value = null;
+                }, 5000);
+
+                form.reset();
+            });
         });
-
-        message.value = "Thank you for reaching out! We will get back to you shortly.";
-
-        clearTimeout = setTimeout(() => {
-            message.value = null;
-        }, 5000);
-
-        form.reset();
     } catch (error) {
         message.value = "An error occurred. Please try again later.";
     }

@@ -6,10 +6,12 @@ interface Contact {
     phone: string;
     message: string;
     preferredToContact: string;
+    token: string;
 }
 
 export default defineEventHandler(async (event) => {
     const body = (await readBody(event)) as Contact;
+    const config = useRuntimeConfig();
 
     const ContactSchema = yup.object().shape({
         name: yup.string().required("Name is required").min(2, "Name is too short").max(50, "Name is too long"),
@@ -23,6 +25,7 @@ export default defineEventHandler(async (event) => {
             .string()
             .required("Preferred contact method is required")
             .oneOf(["email", "phone-call", "text"], "Preferred contact method is not valid"),
+        token: yup.string().required("Token is required"),
     });
 
     try {
@@ -30,6 +33,18 @@ export default defineEventHandler(async (event) => {
 
         if (!validContact) {
             throw new Error(validContact);
+        }
+
+        const recaptcha: any = await $fetch("https://www.google.com/recaptcha/api/siteverify", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded",
+            },
+            body: `secret=${config.RECAPTCHA_SECRET_KEY}&response=${body.token}`,
+        });
+
+        if (!recaptcha.success) {
+            throw new Error("Recaptcha failed");
         }
 
         return body;
