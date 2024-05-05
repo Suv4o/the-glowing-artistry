@@ -1,9 +1,11 @@
 <template>
-    <Header />
-    <main>
-        <slot />
-    </main>
-    <Footer />
+    <div class="overflow-hidden">
+        <Header />
+        <main>
+            <slot />
+        </main>
+        <Footer />
+    </div>
 </template>
 
 <style>
