@@ -11,7 +11,7 @@ import { CheckCircleIcon, InformationCircleIcon } from "@heroicons/vue/20/solid"
             <div class="mt-10 max-w-2xl">
                 <h2 class="mt-16 text-2xl font-bold tracking-tight text-light-olive">Waiver:</h2>
                 <p class="mt-6">
-                    By scheduling an appointment, you are granting authorization to The Glowing Artistry’s lash artists
+                    By scheduling an appointment, you are granting authorisation to The Glowing Artistry’s lash artists
                     to perform the semi-permanent eyelash extensions procedure. This entails affixing individual
                     synthetic eyelashes to your natural lashes. It is imperative and your responsibility to maintain
                     stillness throughout the application process, to keep your eyes closed unless instructed otherwise.
@@ -28,9 +28,10 @@ import { CheckCircleIcon, InformationCircleIcon } from "@heroicons/vue/20/solid"
                     “Client Registration and History Form”.
                 </p>
                 <p class="mt-6">
-                    By accepting these terms, you release The Glowing Artistry’s eyelash extension lash artist from any
-                    liability for undisclosed preexisting conditions or any subsequent changes to those conditions. You
-                    assume full responsibility for any complications arising during or after the procedure.
+                    By booking an appointment, you are indicating your acceptance of all terms and policies, and you
+                    release The Glowing Artistry’s eyelash extension lash artist from any liability for undisclosed
+                    pre-existing conditions or any subsequent changes to those conditions. You assume full
+                    responsibility for any complications arising during or after the procedure.
                 </p>
                 <h2 class="mt-16 text-2xl font-bold tracking-tight text-light-olive">Photo Release:</h2>
                 <p class="mt-6">
@@ -42,6 +43,10 @@ import { CheckCircleIcon, InformationCircleIcon } from "@heroicons/vue/20/solid"
                 <h2 class="mt-16 text-2xl font-bold tracking-tight text-light-olive">Booking Terms:</h2>
                 <p class="mt-6">
                     To confirm your appointment, a non-refundable $50 deposit is required at the time of booking.
+                </p>
+                <p class="mt-6">
+                    To allow our lash artists to provide you with their undivided attention and create the perfect look
+                    for you, we kindly ask that you attend your lash appointment solo.
                 </p>
                 <h2 class="mt-16 text-2xl font-bold tracking-tight text-light-olive">Cancellation Policy:</h2>
                 <p class="mt-6">

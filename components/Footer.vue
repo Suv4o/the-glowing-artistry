@@ -52,7 +52,7 @@ const navigation = {
                         <i>Subscribe</i>
                     </h2>
                     {{ " " }}
-                    <p class="inline sm:block lg:inline xl:block">
+                    <p>
                         Stay in the loop with exclusive offers, event updates, new product releases, and much more by
                         subscribing today.
                     </p>
