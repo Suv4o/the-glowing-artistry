@@ -1,4 +1,5 @@
 import * as yup from "yup";
+import { firebaseAdmin } from "../utils";
 
 interface Contact {
     name: string;
@@ -47,7 +48,22 @@ export default defineEventHandler(async (event) => {
             throw new Error("Recaptcha failed");
         }
 
-        return body;
+        // Initialize Firebase Admin Firestore
+        const firebase = new firebaseAdmin();
+        const firestore = firebase.getFirestore();
+
+        const contactRecordToUpdate = Object.entries(body).reduce((acc: Record<string, unknown>, [key, value]) => {
+            if (key !== "token") {
+                acc[key] = value;
+            }
+            return acc;
+        }, {});
+
+        // Add contact to Firestore
+        await firestore.collection("contacts").add({
+            ...contactRecordToUpdate,
+            created: new Date(),
+        });
     } catch (error) {
         return error;
     }
