@@ -15,6 +15,9 @@ export default defineNuxtConfig({
     css: ["~/assets/css/main.css"],
     runtimeConfig: {
         RECAPTCHA_SECRET_KEY: process.env.RECAPTCHA_SECRET_KEY,
+        SENDGRID_API_KEY: process.env.SENDGRID_API_KEY,
+        NOTIFICATION_FROM_EMAIL: process.env.NOTIFICATION_FROM_EMAIL,
+        NOTIFICATION_TO_EMAIL: process.env.NOTIFICATION_TO_EMAIL,
         FIREBASE_TYPE: process.env.FIREBASE_TYPE,
         FIREBASE_PROJECT_ID: process.env.FIREBASE_PROJECT_ID,
         FIREBASE_PRIVATE_KEY_ID: process.env.FIREBASE_PRIVATE_KEY_ID,

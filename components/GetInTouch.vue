@@ -72,7 +72,8 @@ async function submitForm(event: Event) {
                             04 3172 2245 <br />
                             <a href="mailto:theglowingartistry@gmail.com">theglowingartistry@gmail.com</a> <br /><br />
                             <span class="text-light-olive">Opening Hours</span> <br />
-                            Monday to Friday 5:30-8:30pm <br />
+                            Monday to Thursday 5:00pm to 8:00pm <br />
+                            Friday 5:00pm to 9:00pm <br />
                             <i class="text-dark-olive">After-hour appointments available upon request</i>
                         </p>
                     </div>

@@ -1,5 +1,14 @@
 import { initializeApp, cert } from "firebase-admin/app";
 import { getFirestore } from "firebase-admin/firestore";
+import sgMail from "@sendgrid/mail";
+
+export type EmailMessage = {
+    to: string;
+    from: string;
+    subject: string;
+    text: string;
+    html: string;
+};
 
 const config = useRuntimeConfig();
 
@@ -31,4 +40,36 @@ export class firebaseAdmin {
     getFirestore() {
         return getFirestore(this.app);
     }
+}
+
+export async function sendEmail(message: EmailMessage) {
+    const SENDGRID_API_KEY = config.SENDGRID_API_KEY;
+
+    sgMail.setApiKey(SENDGRID_API_KEY);
+
+    try {
+        await sgMail.send(message);
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+export function buildEmailMessageForContactForm(
+    name: string,
+    email: string,
+    mobile: string,
+    message: string,
+    preferredToContact: string
+) {
+    const NOTIFICATION_TO_EMAIL = config.NOTIFICATION_TO_EMAIL as string;
+    const NOTIFICATION_FROM_EMAIL = config.NOTIFICATION_FROM_EMAIL as string;
+
+    const emailMessage = {
+        to: NOTIFICATION_TO_EMAIL,
+        from: NOTIFICATION_FROM_EMAIL,
+        subject: "New Contact Form - The Glowing Artistry",
+        text: `New Contact Form - The Glowing Artistry\n\n Name: ${name} \n Email: ${email} \n Mobile: ${mobile} \n Message: ${message} \n Preferred to be contacted via: ${preferredToContact}`,
+        html: `New Contact Form - The Glowing Artistry<br/><br/><strong>Name:</strong>  ${name}<br/> <strong>Email:</strong> ${email}<br/> <strong>Mobile:</strong> ${mobile}<br/> <strong>Message:</strong> ${message} <br/> <strong>Preferred to be contacted via:</strong> ${preferredToContact}`,
+    };
+    return emailMessage;
 }

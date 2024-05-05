@@ -1,5 +1,5 @@
 import * as yup from "yup";
-import { firebaseAdmin } from "../utils";
+import { firebaseAdmin, sendEmail, buildEmailMessageForContactForm } from "../utils";
 
 interface Contact {
     name: string;
@@ -52,6 +52,7 @@ export default defineEventHandler(async (event) => {
         const firebase = new firebaseAdmin();
         const firestore = firebase.getFirestore();
 
+        // Remove token from body
         const contactRecordToUpdate = Object.entries(body).reduce((acc: Record<string, unknown>, [key, value]) => {
             if (key !== "token") {
                 acc[key] = value;
@@ -64,6 +65,14 @@ export default defineEventHandler(async (event) => {
             ...contactRecordToUpdate,
             created: new Date(),
         });
+
+        const name = body?.name ?? "";
+        const email = body?.email ?? "";
+        const mobile = body?.phone ?? "";
+        const message = body?.message ?? "";
+        const preferredToContact = body?.preferredToContact ?? "";
+
+        await sendEmail(buildEmailMessageForContactForm(name, email, mobile, message, preferredToContact));
     } catch (error) {
         return error;
     }
