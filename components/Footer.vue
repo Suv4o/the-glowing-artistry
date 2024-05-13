@@ -1,5 +1,9 @@
 <script setup lang="ts">
 import { defineComponent, h } from "vue";
+declare const grecaptcha: any;
+const message = ref<string | null>(null);
+let clearTimeout: any = null;
+const config = useRuntimeConfig();
 
 const navigation = {
     main: [
@@ -41,6 +45,46 @@ const navigation = {
         },
     ],
 };
+
+function submitForm(event: Event) {
+    event.preventDefault();
+    grecaptcha.ready(() => {
+        grecaptcha.execute(config.public.RECAPTCHA_SITE_KEY, { action: "submit" }).then(async (token: string) => {
+            message.value = null;
+            if (clearTimeout) {
+                clearTimeout(clearTimeout);
+            }
+
+            const form = event.target as HTMLFormElement;
+            const formData = new FormData(form);
+            const formEntries = Object.fromEntries(formData.entries());
+
+            const body = Object.fromEntries(Object.entries(formEntries).filter(([_, value]) => value !== ""));
+
+            body.token = token;
+
+            try {
+                await $fetch("/api/newsletters", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(body),
+                });
+            } catch (error: any) {
+                message.value = "An error occurred. Please try again!";
+            }
+
+            message.value = "Thank you for subscribing!";
+
+            clearTimeout = setTimeout(() => {
+                message.value = null;
+            }, 5000);
+
+            form.reset();
+        });
+    });
+}
 </script>
 
 <template>
@@ -57,16 +101,17 @@ const navigation = {
                         subscribing today.
                     </p>
                 </div>
-                <form class="w-full max-w-md lg:col-span-5 lg:pt-2">
+                <form @submit="submitForm" class="w-full max-w-md lg:col-span-5 lg:pt-2">
                     <div class="flex gap-x-4 mb-4">
                         <label for="email-address" class="sr-only">Subscribe Name</label>
                         <input
-                            id="subscribe-name"
-                            name="subscribe-name"
-                            type="email"
-                            autocomplete="subscribe-name"
+                            id="name"
+                            name="name"
+                            type="text"
+                            autocomplete="name"
                             class="min-w-0 flex-auto rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-light-olive sm:text-sm sm:leading-6"
                             placeholder="Name"
+                            required
                         />
                     </div>
                     <div class="flex gap-x-4">
@@ -78,6 +123,7 @@ const navigation = {
                             autocomplete="email"
                             class="min-w-0 flex-auto rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-light-olive sm:text-sm sm:leading-6"
                             placeholder="Email address"
+                            required
                         />
                         <button
                             type="submit"
@@ -86,6 +132,7 @@ const navigation = {
                             Subscribe
                         </button>
                     </div>
+                    <p v-if="message" class="mt-4 text-sm">{{ message }}</p>
                 </form>
             </div>
             <nav class="-mb-6 columns-2 sm:flex sm:justify-center sm:space-x-12" aria-label="Footer">

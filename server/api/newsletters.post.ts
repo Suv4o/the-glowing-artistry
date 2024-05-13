@@ -1,35 +1,23 @@
 import * as yup from "yup";
-import { firebaseAdmin, sendEmail, buildEmailMessageForContactForm } from "../utils";
+import { firebaseAdmin, sendEmail, buildEmailMessageForNewSubscriber } from "../utils";
 
 // Initialize Firebase Admin Firestore
 const firebase = new firebaseAdmin();
 const firestore = firebase.getFirestore();
 
-interface Contact {
+interface NewsLetters {
     name: string;
     email: string;
-    phone: string;
-    message: string;
-    preferredToContact: string;
     token: string;
 }
 
 export default defineEventHandler(async (event) => {
-    const body = (await readBody(event)) as Contact;
+    const body = (await readBody(event)) as NewsLetters;
     const config = useRuntimeConfig();
 
     const ContactSchema = yup.object().shape({
         name: yup.string().required("Name is required").min(2, "Name is too short").max(50, "Name is too long"),
         email: yup.string().optional().email("Email is not valid"),
-        phone: yup
-            .string()
-            .optional()
-            .matches(/^[0-9]{10}$/, "Phone number is not valid"),
-        message: yup.string().required("Message is required").min(10, "Message is too short"),
-        preferredToContact: yup
-            .string()
-            .required("Preferred contact method is required")
-            .oneOf(["email", "phone-call", "text"], "Preferred contact method is not valid"),
         token: yup.string().required("Token is required"),
     });
 
@@ -60,19 +48,26 @@ export default defineEventHandler(async (event) => {
             return acc;
         }, {});
 
+        // Read from firestore and check if email already exists
+        const emailExists = await firestore.collection("newsletters").where("email", "==", body.email);
+
+        const querySnapshot = await emailExists.get();
+        const emailExistsData = querySnapshot.docs.map((doc) => doc.data());
+
+        if (emailExistsData.length) {
+            throw new Error("Email already exists");
+        }
+
         // Add contact to Firestore
-        await firestore.collection("contacts").add({
+        await firestore.collection("newsletters").add({
             ...contactRecordToUpdate,
             created: new Date(),
         });
 
         const name = body?.name ?? "";
         const email = body?.email ?? "";
-        const mobile = body?.phone ?? "";
-        const message = body?.message ?? "";
-        const preferredToContact = body?.preferredToContact ?? "";
 
-        await sendEmail(buildEmailMessageForContactForm(name, email, mobile, message, preferredToContact));
+        await sendEmail(buildEmailMessageForNewSubscriber(name, email));
     } catch (error) {
         return error;
     }
