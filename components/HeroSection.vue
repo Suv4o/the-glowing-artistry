@@ -45,10 +45,11 @@
                         natural allure while empowering you to radiate confidence with every flutter.
                     </p>
                     <div class="mt-10 flex items-center justify-center gap-x-6">
-                        <NuxtLink
-                            href="/"
-                            class="rounded-md bg-beige px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-dark-blush focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-dark-blush"
-                            >Book now</NuxtLink
+                        <a
+                            href="https://bookings.gettimely.com/theglowingartistry/bb/book"
+                            target="_blank"
+                            class="rounded-md bg-beige px-4 py-3 text-2xl font-semibold text-white shadow-sm hover:bg-dark-blush focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-dark-blush"
+                            >Book now</a
                         >
                         <NuxtLink href="/" class="text-sm font-semibold leading-6 text-dark-olive"
                             >Services & Prices <span aria-hidden="true">→</span></NuxtLink

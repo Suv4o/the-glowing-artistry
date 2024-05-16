@@ -121,10 +121,11 @@ import { CheckCircleIcon, InformationCircleIcon } from "@heroicons/vue/20/solid"
                     <i>Experience</i> the difference. <br /><i>Secure</i> your spot now.
                 </h2>
                 <div class="mt-10 flex items-center gap-x-6 lg:mt-0 lg:flex-shrink-0">
-                    <NuxtLink
-                        to="/"
+                    <a
+                        to="https://bookings.gettimely.com/theglowingartistry/bb/book"
+                        target="_blank"
                         class="rounded-md bg-dark-beige px-10 py-5 font-semibold text-white shadow-sm hover:bg-beige focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-beige"
-                        >Book Now</NuxtLink
+                        >Book Now</a
                     >
                 </div>
             </div>

@@ -42,7 +42,8 @@
                     </p>
                     <div class="mt-8">
                         <a
-                            href="#"
+                            href="https://bookings.gettimely.com/theglowingartistry/bb/book"
+                            target="_blank"
                             class="inline-flex rounded-md px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 bg-beige hover:bg-dark-beige focus:bg-dark-beige"
                             >Book now</a
                         >

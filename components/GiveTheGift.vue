@@ -12,7 +12,8 @@
                 </p>
                 <div class="mt-6 flex items-center justify-center gap-x-6">
                     <a
-                        href="#"
+                        href="https://bookings.gettimely.com/theglowingartistry/bb/purchase?giftVoucherId=304966"
+                        target="_blank"
                         class="rounded-md bg-light-olive px-10 py-4 font-semibold text-white shadow-sm hover:bg-dark-olive focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-dark-olive"
                         >Give the Gift</a
                     >
