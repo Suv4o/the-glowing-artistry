@@ -13,19 +13,23 @@ const images = [
 
 const eyelashExtensionsSets = [
     {
+        name: "Mini Set $75",
+        description: "A very light, natural and fluffy set. Perfect for accentuating the eyes.",
+    },
+    {
         name: "Natural Set $130",
         description:
-            "Experience subtle lash enhancement with our Classic Set. Light extensions are delicately placed along approximately half of the eyelashes, providing a natural yet noticeable enhancement to your lashes. (allow 2hrs)",
+            "Experience subtle lash enhancement with our Classic Set. Light extensions are delicately placed along approximately half of the eyelashes, providing a natural yet noticeable enhancement to your lashes.",
     },
     {
         name: "Hybrid Set $160",
         description:
-            "Achieve a naturally full look with our Hybrid Set. A selection of classic lashes and volume fans, meticulously crafted for lightness and precision, are carefully applied across the eye, blending seamlessly with your natural lashes for an effortlessly glamorous appearance. (allow 2.25hrs)",
+            "Achieve a naturally full look with our Hybrid Set. A selection of classic lashes and volume fans, meticulously crafted for lightness and precision, are carefully applied across the eye, blending seamlessly with your natural lashes for an effortlessly glamorous appearance.",
     },
     {
         name: "Volume Set $220",
         description:
-            "Indulge in luxurious fullness with our Volume Set. Volume fans, meticulously placed on all-natural eyelashes, create a dense, voluminous look that exudes elegance and sophistication, perfect for those seeking maximum impact. (allow 2.5hrs)",
+            "Indulge in luxurious fullness with our Volume Set. Volume fans, meticulously placed on all-natural eyelashes, create a dense, voluminous look that exudes elegance and sophistication, perfect for those seeking maximum impact.",
     },
 ];
 
@@ -157,7 +161,7 @@ const eyelashExtensionsRemovals = [
                     </h2>
                     <div class="mt-10 flex items-center gap-x-6 lg:mt-0 lg:flex-shrink-0">
                         <a
-                            to="https://bookings.gettimely.com/theglowingartistry/bb/book"
+                            href="https://bookings.gettimely.com/theglowingartistry/bb/book"
                             target="_blank"
                             class="rounded-md bg-dark-beige px-10 py-5 font-semibold text-white shadow-sm hover:bg-beige focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-beige"
                             >Book Now</a
