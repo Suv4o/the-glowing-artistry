@@ -68,7 +68,8 @@ async function submitForm(event: Event) {
                         <h2 class="text-base font-semibold leading-7 text-gray-900 mb-2">Where are we located</h2>
                         <p class="mt-1 text-sm leading-6 text-gray-600">
                             <span class="text-light-olive">Studio</span> <br />
-                            1/117 Dorset Road, Boronia, VIC 3155 <br />
+                            Dorset Road, Boronia, VIC 3155 <br />
+                            <i>(location provided upon booking)</i><br />
                             04 3172 2245 <br />
                             <a href="mailto:theglowingartistry@gmail.com">theglowingartistry@gmail.com</a> <br /><br />
                             <span class="text-light-olive">Opening Hours</span> <br />
