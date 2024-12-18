@@ -51,7 +51,7 @@
                             class="rounded-md bg-beige px-4 py-3 text-2xl font-semibold text-white shadow-sm hover:bg-dark-blush focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-dark-blush"
                             >Book now</a
                         >
-                        <NuxtLink href="/" class="text-sm font-semibold leading-6 text-dark-olive"
+                        <NuxtLink to="/services-prices" class="text-sm font-semibold leading-6 text-dark-olive"
                             >Services & Prices <span aria-hidden="true">→</span></NuxtLink
                         >
                     </div>

@@ -17,17 +17,17 @@ const eyelashExtensionsSets = [
         description: "A very light, natural and fluffy set. Perfect for accentuating the eyes.",
     },
     {
-        name: "Natural Set $130",
+        name: "Natural Set $100",
         description:
             "Experience subtle lash enhancement with our Classic Set. Light extensions are delicately placed along approximately half of the eyelashes, providing a natural yet noticeable enhancement to your lashes.",
     },
     {
-        name: "Hybrid Set $160",
+        name: "Hybrid Set $120",
         description:
             "Achieve a naturally full look with our Hybrid Set. A selection of classic lashes and volume fans, meticulously crafted for lightness and precision, are carefully applied across the eye, blending seamlessly with your natural lashes for an effortlessly glamorous appearance.",
     },
     {
-        name: "Volume Set $220",
+        name: "Volume Set $180",
         description:
             "Indulge in luxurious fullness with our Volume Set. Volume fans, meticulously placed on all-natural eyelashes, create a dense, voluminous look that exudes elegance and sophistication, perfect for those seeking maximum impact.",
     },
@@ -36,15 +36,15 @@ const eyelashExtensionsSets = [
 const eyelashExtensionsRefills = [
     {
         name: "Before 2 weeks",
-        description: "$85 Natural / $95 Hybrid / Volume $105 ",
+        description: "$70 Natural / $80 Hybrid / Volume $105 ",
     },
     {
         name: "Before 3 weeks",
-        description: "$95 Natural / $110 Hybrid / Volume $125 ",
+        description: "$80 Natural / $90 Hybrid / Volume $125 ",
     },
     {
         name: "Before 4 weeks",
-        description: "$115 Natural / $125 Hybrid / Volume $145",
+        description: "$90 Natural / $100 Hybrid / Volume $145",
     },
 ];
 
@@ -139,6 +139,20 @@ const eyelashExtensionsRemovals = [
                     artist will check for any sign of redness, irritation, swelling, or other allergic reactions at the
                     test site.
                 </p>
+                <div class="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-3">
+                    <div class="sm:flex lg:block">
+                        <div class="mt-6">
+                            <h3 class="text-sm font-medium text-dark-olive">Eyelash Extensions Foaming Cleanse:</h3>
+                            <p class="text-sm font-medium text-dark-olive">$30</p>
+                        </div>
+                    </div>
+                    <div class="sm:flex lg:block">
+                        <div class="mt-6">
+                            <h3 class="text-sm font-medium text-dark-olive">Consultation:</h3>
+                            <p class="text-sm font-medium text-dark-olive">5-10 minutes online, Free</p>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="bg-white sm:pt-12">
                 <div class="md:px-4">
